@@ -1,0 +1,56 @@
+
+<div class="container">
+    <div class="left-links-section">
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">account management</a>
+        <a class="links" href="">change password</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>
+        <a class="links" href="">public profile</a>    
+    </div>
+    <div class="right-content-section">
+        <div>
+            <h2 class="heading-for-profile">Public profile</h2>
+            <p class="text">People visiting your profile will see the following info</p>
+        </div>
+        <div>
+            <app-changeprofilepic [userid]="currentUser.id"></app-changeprofilepic>
+            <form action="">
+                <div class="form-name-section">
+                    <div class="form-item">
+                        <label for="id_firstname">First name</label>
+                        <input class="form-input w-240" id="id_firstname" type="text" value="{{currentUser.first_name}}">
+                    </div>
+                    <div class="form-item">
+                        <label for="id_lastname">Surname</label>
+                        <input class="form-input w-240" id="id_lastname" type="text" value="{{currentUser.last_name}}">    
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="id_about">About</label>
+                    <textarea class="form-textarea" name="" id="id_about" cols="30" rows="3" placeholder="tell your story"></textarea>
+                </div>
+                <div class="form-item">
+                    <label for="id_pronouns">Pronouns</label>
+                    <input class="form-input" id="id_pronouns" type="text">
+                    <div class="fs-xs">Choose up to 2 sets of pronouns to appear on your profile so others know how to refer to you. You can edit or remove them at any time.</div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="form-item">
+                    <label for="id_username">{{currentUser.username}}</label>
+                    <input class="form-input" id="id_username" type="text">
+                </div>
+                <div>
+                    <input class="btn-gray" type="submit" value="save">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+

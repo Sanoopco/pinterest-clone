@@ -1,0 +1,25 @@
+<div id="id_replay_container">
+    <div *ngFor="let replyComment of replyComments$">
+        <div class="d-flex comment-item mt-1 ms-3">
+            <div class="img-container-for-profile-in-comment-item round border">
+                <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" class="img">
+            </div>
+            <div class="ms-1">
+                <p class="username mx-0 fs-for-names-in-comments">
+                {{replyComment.user}}<span class="date ms-1">{{replyComment.reply}}</span>
+                </p>
+                <div class="d-flex">
+                    <p class="date p-0 mx-0 small-text-for-links-in-comment">{{replyComment.created_date}}</p>
+                    <a (click)="addLike($event,replyComment.id)" class="small-text-for-links-in-comment"><i class="fa-solid fa-heart"></i> {{replyComment.like.length}}</a>
+                    <a (click)="handleDeleteReply(currentUser.username,replyComment.user,replyComment.id)" class="small-text-for-links-in-comment"><i class="fa-solid fa-ellipsis"></i></a>
+                    <div class="delete-btn" id="replyDeleteBtn{{replyComment.id}}">
+                        <button (click)="removeReply(replyComment.id)">
+                            delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

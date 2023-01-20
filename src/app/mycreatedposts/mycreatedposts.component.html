@@ -1,0 +1,37 @@
+<div *ngIf="myCreatedPosts.length<=0" class="container empty-created-posts-message-container">
+    <p>
+        Nothing to show...yet! Pins you created will live here.
+    </p>
+    <a href="" [routerLink]="['/createpost']" class="btn">Create Pins</a>
+</div>
+<div class="container" id="id_saved_container">
+    <div class="card card-medium" *ngFor="let myCreatedpost of myCreatedPosts">
+        <img src="{{myCreatedpost.post_img}}" alt="" class="img">
+            <div class="content">  
+                <div class="top">
+                    <p class="list-item">my saves</p>
+                    <button class="btn ">save</button>
+                </div>
+                <div class="bottom">
+                    <i class="fa-solid fa-arrow-up-from-bracket round-small"></i>
+                    <a (click)="handleDelete(myCreatedpost.id)"><i class="fa-solid fa-ellipsis padding round-small"></i></a>
+                </div>
+                <div class="deletebtncontainer close" id="id_delete_container-for-my-posts{{myCreatedpost.id}}">
+                    <a class="link link-for-delete" (click)="removeMyPost(myCreatedpost.id)">delete</a>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="pop-up-message" id="pop-up-message">
+    <lord-icon
+        src="https://cdn.lordicon.com/egiwmiit.json"
+        trigger="loop"
+        colors="primary:#121331"
+        state="morph-check-in"
+        style="width:250px;height:250px">
+    </lord-icon>
+    <div class="success-message text"></div>
+    <button type="button" class="close-btn" (click)="closePopUpMessage()">
+        <i class="fa-solid fa-xmark"></i>
+    </button>
+</div>

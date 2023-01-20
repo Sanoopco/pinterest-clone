@@ -1,0 +1,119 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    box-sizing: border-box;
+    padding: 10px 10px;
+    display: flex;
+    align-items: flex-start;
+
+}
+h1,h2,span,div,a,button{
+    font-family: "Poppins",sans-serif;
+}
+label{
+    font-size: 12px;
+    text-transform: capitalize;
+    padding-bottom: 5px;
+}
+.fs-xs{
+    font-size: 12px;
+}
+.heading-for-profile{
+    margin-bottom: 8px;
+}
+.text{
+    margin: 10px 0px;
+}
+.btn-gray{
+    padding: 8px 15px;
+    border-radius: 17px;
+    border: none;
+    color: rgb(48,48,48);
+    background-color: rgb(239,239,239);
+    font-family: 'Poppins', sans-serif;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.img-container{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 22px;
+    background-color: rgb(239,239,239);
+}
+.profile-pic-section{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+.d-flex{
+    display: flex;
+}
+.form-item{
+    display: flex;
+    flex-direction: column;
+}
+.form-input{
+    width: 100%;
+    height: 45px;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: 1.8px solid rgb(205, 205, 205);
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+}
+.w-240{
+    width: 240px;
+}
+.form-name-section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.form-textarea{
+    width: auto;
+    padding: 8px 16px;
+    box-sizing: border-box;
+    border: 1.8px solid #cdcdcd;
+    border-radius: 8px;
+    resize: none;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 5px;
+}
+.right-content-section{
+    width: 500px;
+    height: auto;
+    box-sizing: border-box;
+    padding-inline: 5px;
+}
+.left-links-section{
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 30px 0px 10px 0px;
+}
+.links{
+    padding: 8px 8px;
+    color: #141414;
+    text-decoration: none;
+    text-align: left;
+}
+.form-input::placeholder{
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+}
+.form-textarea::placeholder{
+    font-family: 'Poppins',sans-serif;
+    font-size: 14px;
+}
+.d-none{
+    display: none;
+}

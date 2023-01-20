@@ -1,0 +1,65 @@
+<!-- @NgModule.schemas=CUSTOM_ELEMENTS_SCHEMA -->
+
+<div class="addcontainer padding-for-container border">
+    <form action="" [formGroup]="postForm" (ngSubmit)="addPost()">
+    <div class="topnav">
+        <button class="btn-plane">
+            <i class="fa-solid fa-ellipsis"></i>
+        </button>
+        <div>
+            <div class="collpse-container">
+                <!-- <input type="text" class="form-input"> -->
+            </div>
+            <input type="submit" class=" btn-red" id="id_save_btn" value="save">
+        </div>
+    </div>
+    
+    <div class="container-for-content-inside-addcontainer">
+        
+        <div class="left-container padding-for-container ">
+            <label for="id_post" class="label-for-adding-post" id="id_drag_area">
+                <div class="container-inside-label">
+                    <i class="fa fa-arrow-up icon-for-post-upload"></i>
+                    <p class="text t-center">
+                        Drag and drop or click to upload
+                    </p>
+                </div>
+                <p class="link-gray t-center mt-3 recommendation-text-inside-label">
+                    Recomendations: Use high-quality .jpg files under 20mb
+                </p>
+                <div class="absolute-img-container">
+                    <img src="" alt="" class="img">
+                </div>
+            </label>
+            <input type="file" (change)="onChange($event)" name="" formControlName="post_img" id="id_post" >
+        </div>
+        <div class="right-container">
+            <input class="input-for-title" type="text" id="id_post_title" placeholder="Add your title" required formControlName="post_title">
+            <div class="d-flex mt-3">
+                <p class="link-gray userprofile-with-name"><span>s</span></p>
+                <p class="text">
+                    sanoop
+                </p>
+            </div>
+            <input class="input-for-description" id="id_description" type="text" placeholder="Tell everyone what your Pin is about" formControlName="description">
+            <input type="text" class="input-for-destination-link" id="id_destination_link" placeholder="Add a destination link" formControlName="destination_link">
+
+        </div>       
+    </div>
+    </form> 
+
+    <div class="pop-up-message" id="pop-up-message">
+        
+        <lord-icon
+            src="https://cdn.lordicon.com/egiwmiit.json"
+            trigger="loop"
+            colors="primary:#121331"
+            state="morph-check-in"
+            style="width:250px;height:250px">
+        </lord-icon>
+        <div class="success-message text"></div>
+        <button type="button" class="close-btn" (click)="closePopUpMessage()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+</div>

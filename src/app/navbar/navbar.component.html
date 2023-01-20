@@ -1,0 +1,112 @@
+<nav>
+    <p class="brand-logo">
+        <a href="#">p</a>
+    </p>
+    <div class="nav-link-section">
+        <a [routerLink]="['home']">home</a>
+        <a href="">today</a>
+        <a [routerLink]="['createpost']" class="create-link">create <i class="fa-solid fa-chevron-down"></i></a>
+    </div>
+    <div class="nav-search-section ">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="search" name="" id="search_input" placeholder="search your pins">
+    </div>
+    <div class="nav-link-section" *ngIf="!currentUser">
+        <a href='' routerLink='login' class="links">login</a>
+    </div>
+    <div class="nav-icon-section" *ngIf="currentUser">
+        <button class="nav-links" (click)="handleNotificationMenu()"><i class="fa-solid fa-bell"></i></button>
+        <button class="nav-links" (click)="handleMessageMenu()" ><i class="fa-solid fa-comment-dots"></i></button>
+        <div class="nav-links flex-center"><a [routerLink]="['myaccount']" class="d-block fs-small"><div *ngIf="!profilePic.profile_pic">{{currentUserInfo$.username.charAt(0)}}</div><img *ngIf="profilePic.profile_pic" src="{{profilePic.profile_pic}}" alt="" class="img"></a></div>
+        <button class="nav-links" (click)="handleSideMenu()"><i class="fa-solid fa-chevron-down"></i></button>
+    </div>
+    <div id="notification-side-menu" data-status="inactive">
+        <p class="text">Updates</p>
+        <div class=" d-flex">
+            <a href="" class="icon"><i class="fa-solid fa-plus"></i></a>
+            <div class="fs-for-names-in-comments text-l-m">
+                what ideas feel Sanoop?create your first pin to share what inspires you. <span class="text-gray">4w</span>
+            </div>
+        </div>
+        <div id="all_notifications_show_container">
+            <ul class="notification-list">
+                <li class="notification-item">
+                    <div>
+                        <div>
+                            <span>
+                                <strong>landing page design</strong>,<strong>email newspaper design</strong><span class="text">and more pins trending on pinterest</span> <span class="text-gray small-text">44w</span>
+                            </span>
+                        </div>
+                        <a href="#">
+                            <div class="notification-img-container">
+                                <img class="img" src="https://i.pinimg.com/736x/26/4c/fb/264cfb70830f224803f7369a05a3de40.jpg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div id="message-side-menu" data-status="inactive">
+        <div class="message-header">
+            <p class="text">Inbox</p>
+            <div class="icon-container-in-message-header">
+                <button>
+                    <i class="fa-solid fa-ellipsis-h"></i>
+                </button>
+                <button>
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+            </div>
+        </div>
+        <div>
+            <h1>Share ideas with your friends</h1>
+            <div class="search-box-in-message-side-menu">
+                <i class="fa-solid fa-magnifying-glass p-10 text-gray"></i>
+                <input type="search" name="" id="" placeholder="search by name or email">
+            </div>
+        </div>
+        <div class="message-content-section"></div>
+    </div>
+    <div id="side-menu" data-status="inactive">
+        <div class="small-text p-10">currently in</div>
+        <div class="side-menu-personal-detail-maincontainer">
+            <div class="sub-personal-detail-container" (click)="navigateToProfile()">
+                <div class="container-for-profile-in-side-menu">
+                    <div class="d-center text" *ngIf="!profilePic.profile_pic">{{currentUserInfo$.username.charAt(0)}}</div><img *ngIf="profilePic.profile_pic" src="{{profilePic.profile_pic}}" alt="" class="img">
+                </div>
+                <div class="personal-detail-content">
+                    <div>
+                        <span class="username">
+                            {{currentUserInfo$.username}}
+                        </span>
+                        <span class="account-status">
+                            personal
+                        </span>
+                        <div class="email-container">
+                            <span class="email">
+                                {{currentUserInfo$.email}}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <i class="fa-solid fa-check padding-for-container"></i>
+            </div>
+        </div>
+        <div class="account-detail-container">
+            <div class="small-text p-10">your accounts</div>
+            <a href="#">add account</a>
+            <a href="#">convert to bussiness</a>
+        </div>
+        <div class="more-options-container mt-1">
+            <div class="small-text p-10">more options</div>
+            <a href="#">settings</a>
+            <a href="#">tune tour home feed</a>
+            <a href="#">install the windows app</a>
+            <a href="#">your privacy rights</a>
+            <a (click)="logout()">log out</a>
+        </div>
+    </div>
+</nav>

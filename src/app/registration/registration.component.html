@@ -1,0 +1,33 @@
+
+<div class="container">
+    <div class="form-container">
+        <div class="form-brand">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png" alt="" class="img">
+        </div>
+        <h2 class="text-center">welcome to pinterest</h2>
+        <form action="" [formGroup]="registrationForm" (ngSubmit)="handleRegistration()">
+            <div>
+                <label for="id_firstname" class="form-label">Firstname</label>
+                <input type="text" id="id_firstname" class="form-control" placeholder="first name" formControlName="first_name" >
+            </div>
+            <div>
+                <label for="id_lastname" class="form-label">Lastname</label>
+                <input type="text" id="id_lastname" class="form-control" placeholder="last name" formControlName="last_name" >
+            </div>
+            <div>
+                <label for="id_username" class="form-label">Email</label>
+                <input type="email" id="id_username" class="form-control" placeholder="example@gmail.com" formControlName="email" >
+            </div>
+            <div>
+                <label for="id_username" class="form-label">Username</label>
+                <input type="text" id="id_username" class="form-control" placeholder="username" formControlName="username" >
+            </div>
+            <div>
+                <label for="id_password" class="form-label">Password</label>
+                <input type="password" id="id_password" class="form-control" placeholder="Password" formControlName="password">
+            </div>
+            <input type="submit" class="btn btn-red mt-3" value="register" [disabled]="registrationForm.invalid">
+            
+        </form>
+    </div>
+</div>

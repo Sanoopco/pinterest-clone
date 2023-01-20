@@ -1,0 +1,17 @@
+<div>
+    <span class="fs-xs">photo</span>
+    <div class=" profile-pic-section">
+        <div class="container-for-img-container">
+            <div class="img-container">
+                <div *ngIf="!profilePicFile$.profile_pic">{{currentUser.username.charAt(0)}}</div>
+                <img src="{{profilePicFile$.profile_pic}}" class="img" alt="" *ngIf="profilePicFile$.profile_pic">
+                
+            </div>
+            <div class="profile-pic-delete-btn" (click)="removeProfilePic(profilePicFile$.id)" ><a><i class="fa-solid fa-xmark"></i></a></div>
+        </div>
+        
+        <label for="profilepic" class="btn-gray">change</label>
+        <input type="file" name="" (change)="onChange($event,profilePicFile$.id)" id="profilepic" class="d-none">
+    </div>
+</div>
+ 

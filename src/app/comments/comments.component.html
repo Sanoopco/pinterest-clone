@@ -1,0 +1,57 @@
+
+<div class="comment-container mt-3">
+    <a id="collapseBtn" class="link" (click)="collapse()" ><span>{{comments$.length}}</span> comments<i
+            class="fa-solid fa-caret-down"></i></a>
+    <div class="container  padding-for-container mt-2 " id="id_collapse_container">
+        <div *ngFor="let comment of comments$">
+            <div class="comment-item d-flex mt-1" >
+                <div class="d-flex align-top">
+                    <div class="img-container-for-profile-in-comment-item round border">
+                        <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=600"
+                            alt="" class="img">
+                    </div>
+                    <div class="ms-1">
+                        <p class="username mx-0 fs-for-names-in-comments">
+                            {{comment.user.username}}<span class="date ms-1">{{comment.comment}}</span>
+                        </p>
+                        <div class="d-flex p-relative">
+                            <p class="date p-0 mx-0 small-text-for-links-in-comment">{{comment.created_date}}</p>
+                            <a (click)="onReplyBtnClicked(comment.id)" class="small-text-for-links-in-comment cursor-pointer">reply</a>
+                            <a (click)="addLike($event,comment.id)" class="small-text-for-links-in-comment"><i class="fa-solid fa-heart"></i> {{comment.like.length}}</a>
+                            <a (click)="handleDeleteComment(currentUser.username,comment.user.username,comment.id)" class="small-text-for-links-in-comment"><i class="fa-solid fa-ellipsis"></i></a>
+                            <div class="delete-btn" id='deleteBtn{{comment.id}}'>
+                                <button (click)="removeComment(comment.id)">
+                                    delete
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <!-- <app-addreply [comment_id]="comment.id" *ngIf="replyStatus"></app-addreply> -->
+                <div id="id_main_add_reply_container{{comment.id}}" class="inactivereply">
+                    <form action="" [formGroup]="replyForm" (ngSubmit)="addReply(comment.id)">
+                        <label id="add_reply_container" for="id_reply" class="d-flex ms-auto mt-3">
+                            <div class="img-container-for-profile-in-comment-item round border">
+                                <img src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&w=600" alt="" class="img">
+                            </div>
+                            <div class="input-container-for-reply">
+                                <input type="text" class="form-input" id="id_reply" placeholder="Reply" formControlName="reply">
+                            </div>
+                            
+                        </label>
+                        <div class="d-flex gap-10 ms-auto btn-container">
+                            <input type="submit" class="btn-gray" value="Reply" [disabled]="replyForm.invalid">
+                        </div>
+                    </form> 
+                </div>
+                
+            </div>
+            <app-allreplys [comment_id]="comment.id"></app-allreplys>
+            <!-- <p (click)="showlike(currentUser.id,comment.like)">{{comment.like}}</p> -->
+        </div>
+        <button class="btn-gray mt-2">see more</button>
+    </div>    
+</div>
+

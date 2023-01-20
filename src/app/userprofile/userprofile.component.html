@@ -1,0 +1,41 @@
+<div class="maincontainer">
+    <div class="profile-header">
+        <div class="profile-header-content">
+            <div class="profile-pic">
+                <div *ngIf="!profilePic.profile_pic">{{user.username.charAt(0)}}</div>
+                <img class="img" src="{{profilePic.profile_pic}}" alt="">
+                
+            </div>
+            <div class="username">
+                <h2>{{user.username}}</h2>
+            </div>
+            <div class="email">
+                <p class="small">@{{user.first_name}}{{user.last_name}}</p>
+            </div>
+            <div class="following-count ">
+                <p><span>{{myFollowers$.length}} </span>followers</p>
+                <p><span>0 </span>following</p>                        
+            </div>
+        </div>
+    </div>
+    <div class="btn-container ">
+        <button class="btn" (click)="follow(user.id)">follow</button>
+    </div>
+    <div class="w-100">
+        <div class="container-for-nav">
+            <button id="id_created_btn" (click)="handleButtonMoveToCreate()" (click)="handleCreatedAndSaved($event)" value="created">created</button>
+            <button id="id_saved_btn" (click)="handleButtonMoveToSaved()" (click)="handleCreatedAndSaved($event)" value="saved">saved</button>
+            <div class="line" ></div>
+        </div>
+    </div>
+    <div class="filter-container">
+        <button>
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+        <button>
+            <a [routerLink]="['/createpost']"><i class="fa-solid fa-plus"></i></a>
+        </button>
+    </div>
+    <app-mycreatedposts *ngIf="createdStatus"></app-mycreatedposts>
+    <app-saved *ngIf="savedStatus"></app-saved>
+</div>
